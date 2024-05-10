@@ -61,12 +61,14 @@ library
     exposed-modules:  Preluwude
                       Preluwude.Base
                       Preluwude.Overrides
-                      Preluwude.Cons
+                      Preluwude.Container
+                      Preluwude.IO
                       Preluwude.List
                       Preluwude.String
                       -- Reexports
                       Preluwude.Sequence
                       Preluwude.Text
+                      Preluwude.ByteString
                       Preluwude.Vector
 
     -- Modules included in this library but not exported.
@@ -79,7 +81,9 @@ library
     build-depends:    base ^>= 4.19.0.0,
                       vector ^>= 0.13,
                       containers ^>= 0.6,
-                      text ^>= 2.1
+                      text ^>= 2.1,
+                      witherable ^>= 0.4,
+                      bytestring ^>= 0.12
 
     -- Directories containing source files.
     hs-source-dirs:   src

@@ -1,7 +1,19 @@
-module Preluwude.Cons where
+module Preluwude.Container (
+    Cons (..),
+    UnCons (..),
+    pattern (:<|),
+    Snoc (..),
+    UnSnoc (..),
+    pattern (:|>),
+    Empty (..),
+    pattern Empty,
+    Reversible (..),
+) where
 
 import Preluwude.Base
 
+import Data.ByteString qualified as ByteString
+import Data.List qualified as List
 import Data.Sequence qualified as Seq
 import Data.Text qualified as Text
 import Data.Vector qualified as Vector
@@ -49,7 +61,6 @@ and the following laws should hold:
 
 > isEmpty x = isNothing (uncons x)
 > isEmpty x = isNothing (unsnoc x)
-
 -}
 class Empty t where
     isEmpty :: t -> Bool
@@ -64,6 +75,10 @@ pattern Empty <- (isEmpty -> True)
 {-# COMPLETE Empty, (:|>) #-}
 {-# COMPLETE Empty, (:<|) #-}
 
+-- | TODO
+class Reversible t where
+    reverse :: t -> t
+
 instance Cons (List a) a where
     (<|) = (:)
 instance UnCons (List a) a where
@@ -73,6 +88,8 @@ instance Empty (List a) where
     isEmpty [] = True
     isEmpty _ = False
     empty = []
+instance Reversible (List a) where
+    reverse = List.reverse
 
 instance UnCons (Vector a) a where
     uncons = Vector.uncons
@@ -81,6 +98,8 @@ instance UnSnoc (Vector a) a where
 instance Empty (Vector a) where
     isEmpty = Vector.null
     empty = Vector.empty
+instance Reversible (Vector a) where
+    reverse = Vector.reverse
 
 instance Cons (Seq a) a where
     (<|) = (Seq.<|)
@@ -95,6 +114,18 @@ instance UnSnoc (Seq a) a where
 instance Empty (Seq a) where
     isEmpty = Seq.null
     empty = Seq.Empty
+instance Reversible (Seq a) where
+    reverse = Seq.reverse
 
 instance UnCons Text Char where
     uncons = Text.uncons
+instance Empty Text where
+    isEmpty = (== Text.empty)
+    empty = Text.empty
+
+instance UnCons ByteString Word8 where
+    uncons = ByteString.uncons
+instance UnSnoc ByteString Word8 where
+    unsnoc = ByteString.unsnoc
+
+-- ByteString does not implement Cons or Snoc since neither of those operations are efficient on ByteStrings

@@ -8,13 +8,13 @@ module Preluwude.Overrides (
     maximumMaybe,
     minimumMaybe,
     error,
+    show,
 ) where
 
 import Preluwude.Base
 import Preluwude.String
 
 import Prelude qualified
-
 
 -- | Alias for 'fmap' that doesn't give linked lists any special privileges
 map :: (Functor f) => (a -> b) -> f a -> f b
@@ -40,6 +40,16 @@ minimumMaybe f
     | null f = Nothing
     | otherwise = Just (Prelude.minimum f)
 
-error :: ToString s => s -> a
+error :: (ToString s, HasCallStack) => s -> a
 error x = Prelude.error (toString x)
 
+show :: (Show a, IsString s) => a -> s
+show = fromString . Prelude.show
+
+undefined :: HasCallStack => a
+undefined = Prelude.undefined
+{-# DEPRECATED undefined "undefined remains in code" #-}
+
+todo :: HasCallStack => Text -> a
+todo message = error message
+{-# DEPRECATED todo "todo remains in code" #-}
