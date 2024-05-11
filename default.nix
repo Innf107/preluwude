@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs>, ... }:
+{ pkgs ? import <nixpkgs>, ghcVer ? "ghc982", ... }:
 
 pkgs.stdenv.mkDerivation {
   name = "preluwude";
@@ -7,10 +7,9 @@ pkgs.stdenv.mkDerivation {
 
   buildInputs =
     (with pkgs; [
-      ghc
-      cabal-install
-    ]) ++
-    (with pkgs.haskellPackages; [
+      haskell.compiler.${ghcVer}
+      cabal-install ]) ++
+    (with pkgs.haskell.packages.${ghcVer}; [
       vector
       containers
       text

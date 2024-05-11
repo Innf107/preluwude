@@ -1,15 +1,15 @@
-{ pkgs ? import <nixpkgs>, ... }:
+{ pkgs ? import <nixpkgs>, ghcVer ? "ghc982", ... }:
 
 pkgs.mkShell {
   name = "preluwude";
   packages =
     (with pkgs; [
       git
-      ghc
+      haskell.compiler.${ghcVer}
       cabal-install
-      haskell-language-server
+      # haskell-language-server
     ]) ++
-    (with pkgs.haskellPackages; [
+    (with pkgs.haskell.packages.${ghcVer}; [
       vector
       containers
       text
