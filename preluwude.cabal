@@ -65,6 +65,7 @@ library
                       Preluwude.IO
                       Preluwude.List
                       Preluwude.String
+                      Preluwude.Lattice
                       -- Reexports
                       Preluwude.Sequence
                       Preluwude.Text

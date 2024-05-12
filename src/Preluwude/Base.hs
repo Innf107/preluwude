@@ -48,7 +48,10 @@ import Prelude as Export hiding (
     zipWith3,
     (!!),
     (++),
-    undefined,
+    (||),
+    (&&),
+    not,
+    undefined
  )
 
 import Data.ByteString as Export (ByteString)
