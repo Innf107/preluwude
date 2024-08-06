@@ -86,7 +86,11 @@ import System.IO as Export (
  )
 import GHC.Stack as Export (HasCallStack)
 
+import Control.Monad.Reader as Export (MonadReader(..), ReaderT, runReaderT)
+import Control.Monad.State.Strict as Export (MonadState(..), StateT, runStateT, evalStateT, execStateT)
+import Control.Monad.Writer.CPS as Export (MonadWriter(..))
+import Control.Monad.Trans.Writer.CPS as Export (WriterT, runWriterT)
+
 -- This alias is part of GHC.Exts in recent versions of base
 -- but we need to define it manually to support older GHC versions
 type List = []
-

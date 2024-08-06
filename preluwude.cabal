@@ -70,6 +70,12 @@ library
         , Data.ByteString
         , Data.Text
         , Data.Vector
+        , Control.Monad.Cont
+        , Control.Monad.Reader
+        , Control.Monad.Except
+        , Control.Monad.State.Strict
+        , Control.Monad.Writer.CPS
+        , Control.Monad.Trans
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -81,10 +87,13 @@ library
     build-depends:    base >= 4.11,
                       vector >= 0.12,
                       containers >= 0.6,
+                      unordered-containers >= 0.2.16,
                       text >= 2.0,
                       witherable >= 0.4,
                       bytestring >= 0.10,
                       foldable1-classes-compat >= 0.1,
+                      mtl >= 2.3,
+                      transformers >= 0.5.6
 
     -- Directories containing source files.
     hs-source-dirs:   src
