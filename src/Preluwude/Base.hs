@@ -1,5 +1,5 @@
 -- | Re-exports from base and other libraries without any custom classes or functions
-module Preluwude.Base (module Export) where
+module Preluwude.Base (module Export, List) where
 
 import Prelude as Export hiding (
     -- TODO: provide some generic alternatives to take, drop, dropWhile, span, break
@@ -77,7 +77,6 @@ import Data.Text.IO as Export (
 import GHC.Exts as Export (
     IsList (..),
     IsString (..),
-    List,
  )
 import System.IO as Export (
     Handle,
@@ -86,3 +85,8 @@ import System.IO as Export (
     stdout,
  )
 import GHC.Stack as Export (HasCallStack)
+
+-- This alias is part of GHC.Exts in recent versions of base
+-- but we need to define it manually to support older GHC versions
+type List = []
+

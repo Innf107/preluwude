@@ -9,6 +9,8 @@ module Preluwude.Overrides (
     minimumMaybe,
     error,
     show,
+    undefined,
+    todo
 ) where
 
 import Preluwude.Base
