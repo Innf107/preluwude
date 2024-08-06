@@ -63,6 +63,8 @@ import Data.Word as Export
 import GHC.Generics as Export (Generic, Generic1, Generically, Generically1)
 import Witherable as Export
 
+import Data.Map as Export (Map, insert, lookup)
+
 import Data.ByteString as Export (
     appendFile,
     readFile,
