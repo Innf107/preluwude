@@ -53,6 +53,7 @@ import Prelude as Export hiding (
 
 import Data.ByteString as Export (ByteString)
 import Data.Foldable1 as Export
+import Data.Traversable as Export (for)
 import Data.Int as Export
 import Data.Kind as Export
 import Data.Maybe as Export (isJust, isNothing, fromMaybe)

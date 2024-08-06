@@ -70,6 +70,7 @@ library
         , Data.ByteString
         , Data.Text
         , Data.Vector
+        , Data.Sequence
         , Control.Monad.Cont
         , Control.Monad.Reader
         , Control.Monad.Except
