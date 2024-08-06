@@ -63,6 +63,7 @@ import Data.Word as Export
 import GHC.Generics as Export (Generic, Generic1, Generically, Generically1)
 import Witherable as Export
 
+-- TODO: Provide a generic interface for maps and sets
 import Data.Map as Export (Map, insert, lookup)
 
 import Data.ByteString as Export (
@@ -93,6 +94,7 @@ import Control.Monad.State.Strict as Export (MonadState(..), StateT, runStateT, 
 import Control.Monad.Writer.CPS as Export (MonadWriter(..))
 import Control.Monad.Except as Export (MonadError(..), ExceptT, runExceptT)
 import Control.Monad.Trans.Writer.CPS as Export (WriterT, runWriterT)
+import Control.Monad.IO.Class as Export (MonadIO (..))
 
 -- This alias is part of GHC.Exts in recent versions of base
 -- but we need to define it manually to support older GHC versions
