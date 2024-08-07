@@ -65,6 +65,7 @@ library
                       Preluwude.IO
                       Preluwude.List
                       Preluwude.String
+                      Preluwude.Debug
 
     reexported-modules:
         , Data.ByteString
