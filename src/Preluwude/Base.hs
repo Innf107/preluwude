@@ -67,7 +67,7 @@ import Data.Text as Export (Text)
 import Data.Traversable as Export (for)
 import Data.Vector as Export (Vector)
 import Data.Word as Export
-import GHC.Generics as Export (Generic, Generic1, Generically, Generically1)
+import GHC.Generics as Export (Generic, Generic1, Generically(..), Generically1(..))
 import Witherable as Export
 
 -- TODO: Provide a generic interface for maps and sets
